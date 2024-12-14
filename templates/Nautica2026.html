@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nautica2026 - Rotta Nautica</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('static/Images/Nautica2026Wallpaper.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #fff;
+            width: 100%;
+            box-sizing: border-box;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: bold;
+            color: #1e3a5f;
+        }
+
+        .menu {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-grow: 1;
+            margin-left: 130px;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #1e3a5f;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-left: auto;
+        }
+
+        .login-register {
+            margin-right: 10px;
+        }
+
+        .login-register a {
+            font-size: 16px;
+            color: #1e3a5f;
+            text-decoration: none;
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
+        }
+
+        .user-avatar img {
+            width: 100%;
+            height: auto;
+        }
+
+        .cart {
+            position: relative;
+            margin-right: 20px;
+        }
+
+        .cart img {
+            height: 30px;
+            width: auto;
+            margin-right: 25px;
+        }
+
+        .cart .badge {
+            position: absolute;
+            top: 0px;
+            right: -10px;
+            background-color: #00f;
+            color: #fff;
+            border-radius: 50%;
+            padding: 5px 10px;
+            font-size: 12px;
+        }
+
+        .coming-soon {
+            font-size: 80px;
+            font-weight: bold;
+            margin-top: 80px;
+            margin-bottom: 50px;
+        }
+
+        .video-container {
+            width: 90%;
+            max-width: 800px;
+            margin-bottom: 20px;
+        }
+
+        .video-container video {
+            width: 100%;
+            height: auto;
+        }
+
+        .subscribe-container {
+            background-color: #fff;
+            color: #000;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 200px;
+        }
+
+        .subscribe-container p {
+            margin-bottom: 10px;
+        }
+
+        .subscribe-container input[type="email"] {
+            width: 70%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+
+        .subscribe-container button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #1e3a5f;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+         .subscribe-container button:hover {
+            background-color: #DAA520;
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .footer-bar {
+            background-color: #fff;
+            color: #1e3a5f;
+            padding: 20px;
+            text-align: left;
+            font-size: 2em;
+            font-weight: bold;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-content {
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <div class="logo-text">RottaNautica</div>
+        <div class="menu">
+            <a href="/">Home</a>
+            <a href="/Nautica2026">Nautica2026</a>
+            <a href="/Catalogo_page">Catalogo</a>
+            <a href="/Chi_siamo">Chi Siamo</a>
+            <a href="/Contatti">Contatti</a>
+        </div>
+        <div class="user-info">
+            <div class="login-register">
+                <a href="{{ url_for('login') }}">Accedi / Registrati</a>
+            </div>
+            <div class="user-avatar">
+                <a href="/User_page">
+                    <img src="static/Images/User_image.png" alt="User">
+                </a>
+            </div>
+            <div class="cart">
+		<a href="/Carrello">
+                <img src="static/Images/Carrello.png" alt="Carrello">
+                </a>
+                <div class="badge">0</div>
+            </div>
+        </div>
+    </div>
+    <div class="coming-soon">We Are Coming Soon!</div>
+    <div class="video-container">
+        <video width="100%" controls poster="static/Images/CopertinaVideo.jpg">
+            <source src="static/Images/Video_TechWeb.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="subscribe-container">
+        <p>Vuoi essere il primo a sapere di Nautica2026?</p>
+        <input type="email" placeholder="Inserisci la tua mail qui">
+        <button>Notificami</button>
+    </div>
+    <div class="footer-bar">
+        <div class="footer-content">
+            <p>RottaNautica Inc.</p>
+        </div>
+    </div>
+</body>
+</html>
