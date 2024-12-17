@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+    <style>
+        .dashboard-container {
+           text-align: center;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+             max-width: 500px;
+            margin: 20px auto;
+             box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .dashboard-container h2 {
+            margin-bottom: 20px;
+        }
+    </style>
+    <div class="dashboard-container">
+      <h2>Dashboard</h2>
+      <p>Benvenuto, {{ user['username'] }}!</p>
+    </div>
+{% endblock %}

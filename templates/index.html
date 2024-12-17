@@ -1,0 +1,195 @@
+ {% extends 'base.html' %}
+ {% block content %}
+     <style>
+        .hero {
+            position: relative;
+            text-align: center;
+            color: white;
+        }
+
+        .hero img {
+            width: 100%;
+            height: auto;
+        }
+
+        .hero-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            font-size: 24px;
+            background-color: transparent;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        .hero-text-large {
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 48px;
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 30px 45px;
+            font-size: 22px;
+            background-color: transparent;
+            color: #fff;
+            text-decoration: none;
+            border: 2px solid #fff;
+            border-radius: 45%;
+            position: absolute;
+            top: 75%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .sections {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+
+        .section {
+            width: 30%;
+            text-align: center;
+        }
+
+        .section img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .product-section {
+            background-color: #1e3a5f;
+            color: #ecf0f1;
+            padding: 20px;
+            min-height: 500px;
+        }
+
+        .product-section .title {
+            text-align: center;
+            font-size: 3em;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .product-grid {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .product-card {
+            background-color: #fff;
+            color: #000;
+            border-radius: 10px;
+            width: 28%;
+            height: 400px;
+            margin-bottom: 20px;
+            padding: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .product-card img {
+            max-width: 75%;
+            border-radius: 20px;
+        }
+
+        .product-card a {
+            text-decoration: none;
+            color: #000;
+            font-weight: bold;
+        }
+
+        .about-section {
+            background-color: #1e3a5f;
+            color: #ecf0f1;
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .about-section .title {
+            font-size: 3em;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .about-section .content {
+            font-size: 1em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .about-section img {
+            max-width: 40%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border: 5px solid #fff;
+            align-self: flex-start;
+        }
+
+        .about-section .button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 20px 30px;
+            background-color: #fff;
+            color: #1e3a5f;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-left: 20px;
+            font-size: 22px;
+            margin-top: 950px;
+        }
+    </style>
+    <div class="hero">
+        <img src="{{ url_for('static', filename='Images/Home.png') }}" alt="Home Images">
+        <div class="hero-text-large">Esperienza Nautica Eccezionale</div>
+        <div class="hero-text">Benvenuto/a su RottaNautica, il negozio online di fiducia per tutti gli appassionati di sport acquatici.</div>
+        <a href="/Catalogo_page" class="button">Vedi Catalogo</a>
+    </div>
+    <div class="product-section">
+        <div class="title">Prodotti</div>
+        <div class="product-grid">
+            <div class="product-card">
+                <a href="/Catalogo_page">
+                    <img src="{{ url_for('static', filename='Images/F_ROD_45 (1).jpg') }}" alt="Prodotto 1">
+                </a>
+            </div>
+            <div class="product-card">
+                <a href="/Catalogo_page">
+                    <img src="{{ url_for('static', filename='Images/SubSuit (4).jpg') }}" alt="Prodotto 2">
+                </a>
+            </div>
+            <div class="product-card">
+                <a href="/Catalogo_page">
+                    <img src="{{ url_for('static', filename='Images/Pinne belly (4).jpg') }}" alt="Prodotto 3">
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="about-section">
+        <div class="title">Chi Siamo</div>
+        <div class="content">
+            <p>RottaNautica è il punto di riferimento per gli amanti del mare che cercano prodotti nautici di alta qualità. La</p>
+            <p>nostra missione è migliorare la tua esperienza in mare, offrendo consulenza specializzata, spedizioni veloci e un</p>
+            <p>servizio clienti impeccabile. Siamo qui per rendere la tua vita in mare più sicura, confortevole e piacevole.</p>
+        </div>
+        <img src="{{ url_for('static', filename='Images/Chi_siamo_image_home.jpg') }}" alt="Chi Siamo">
+        <a href="/Chi_siamo" class="button">Scopri di più</a>
+    </div>
+ {% endblock %}

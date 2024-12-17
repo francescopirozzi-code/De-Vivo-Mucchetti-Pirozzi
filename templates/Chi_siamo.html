@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% block content %}
+     <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #fff;
+            align-items: center;
+            text-align: center;
+        }
+
+        .section {
+            width: 100%;
+            padding: 50px 20px;
+            box-sizing: border-box;
+        }
+
+        .section h1,
+        .section h2 {
+            margin-bottom: 20px;
+	    font-size: 2.3em;
+        }
+
+        .section p {
+            margin-bottom: 20px;
+	    font-size: 1.3em;
+        }
+
+        .section:nth-child(odd) {
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #000;
+        }
+
+        .section:nth-child(even) {
+            background-color: rgba(30, 58, 95, 0.8);
+            color: #fff;
+        }
+
+        .section img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        .section-content {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .section-content.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .section-content div {
+            width: 48%;
+        }
+    </style>
+    <div class="section">
+        <h1>About Us</h1>
+        <p>RottaNautica nasce nel 2024, ma le nostre radici affondano in generazioni di appassionati di<p>
+	<p>pesca e nautica. La nostra famiglia ha sempre vissuto in simbiosi con il mare, tramandando di<p>
+	<p>generazione in generazione la passione per la pesca e l’amore per le avventure nautiche. Con<p>
+	<p>l’evoluzione del commercio, abbiamo deciso di portare questa tradizione online, creando un<p>
+	<p>e-commerce che unisce la nostra esperienza e conoscenza del settore con le esigenze moderne dei<p><p>
+	<p>nostri clienti. RottaNautica è il frutto di anni di dedizione e impegno, con l’obiettivo di offrire<p>
+	<p>solo il meglio agli amanti del mare.</p>
+    </div>
+    <div class="section">
+        <div class="section-content">
+            <div>
+                <img src="static/Images/MissioneAziendale.png" alt="Immagine 1">
+            </div>
+            <div>
+                <h2>Missione Aziendale</h2>
+                <p>La nostra missione è offrire il meglio del meglio agli<p>
+		<p>appassionati di pesca e nautica. Ci impegniamo a<p>
+		<p>fornire prodotti di alta qualità, selezionati con cura per<p>
+		<p>garantire prestazioni eccellenti e durature. La nostra<p>
+		<p>passione per il mare ci spinge a cercare continuamente<p>
+		<p>le ultime innovazioni e i migliori articoli sul mercato, per<p>
+		<p>rendere ogni avventura in acqua un’esperienza indimenticabile.</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <div class="section-content reverse">
+            <div>
+                <h2>La nostra visione</h2>
+                <p>Crediamo che la nautica e la pesca non siano solo<p>
+		<p>hobby, ma veri e propri stili di vita. Per questo, ci<p>
+		<p>dedichiamo a supportare la comunità di<p>
+		<p>appassionati con un servizio clienti eccezionale e<p>
+		<p>consigli esperti, aiutandoti a trovare esattamente<p>
+		<p>ciò di cui hai bisogno per le tue avventure.</p>
+            </div>
+            <div>
+                <img src="static/Images/LaNostraVisione.png" alt="Immagine 2">
+            </div>
+        </div>
+    </div>
+{% endblock %} 

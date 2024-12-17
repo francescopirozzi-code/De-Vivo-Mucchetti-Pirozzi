@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+    <style>
+        .nautica-container {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #000;
+             border-radius: 10px;
+            max-width: 90%;
+            margin: 20px auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        .nautica-container h2 {
+            margin-bottom: 20px;
+        }
+        .nautica-container p {
+            margin-bottom: 10px;
+            font-size: 1.1em;
+             text-align: center;
+        }
+           .nautica-container img {
+            max-width: 50%;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+    </style>
+    <div class="nautica-container">
+        <h2>Nautica2026</h2>
+        <video width="100%" controls poster="static/Images/CopertinaVideo.jpg">
+            <source src="static/Images/Video_TechWeb.mp4" type="video/mp4">
+        </video>
+        <p>Esplora il futuro della pesca con Nautica2026, il nostro impegno per l'innovazione e l'eccellenza.</p>
+        <p>Scopri la nostra visione per il futuro del mare, con tecnologie all'avanguardia e design sostenibile.</p>
+        <p>Nautica2026 è molto più di una linea di prodotti: è un'esperienza che trasforma il tuo modo di vivere il mare.</p>
+    </div>
+{% endblock %}

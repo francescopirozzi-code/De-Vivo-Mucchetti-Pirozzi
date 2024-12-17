@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+    <style>
+        .user-page-container {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #000;
+            border-radius: 10px;
+            max-width: 500px;
+            margin: 20px auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        .user-page-container h2 {
+            margin-bottom: 20px;
+        }
+        .user-page-container p {
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+    </style>
+    <div class="user-page-container">
+        <h2>Profilo Utente</h2>
+        {% if user %}
+            <p><strong>Username:</strong> {{ user['username'] }}</p>
+            <p><strong>Email:</strong> {{ user['email'] }}</p>
+        {% else %}
+           <p>Utente non loggato.</p>
+        {% endif %}
+    </div>
+{% endblock %}

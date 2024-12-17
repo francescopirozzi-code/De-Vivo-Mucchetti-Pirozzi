@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% block content %}
+    <style>
+        .product-details-container {
+            max-width: 60%;
+            margin: 20px auto;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+             flex-direction: column;
+              align-items: center;
+               text-align: center;
+            color: #000;
+        }
+
+         .product-details-container h2 {
+            margin-bottom: 20px;
+        }
+        .product-details-container img {
+            max-width: 60%;
+             border-radius: 10px;
+             margin-bottom: 20px;
+        }
+        .product-details-container p {
+           font-size: 1.1em;
+            margin-bottom: 10px;
+           text-align: justify;
+        }
+         .product-details-container a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #1e3a5f;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+             font-weight: bold;
+         }
+          .product-details-container a:hover {
+           background-color: #DAA520;
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+            transform: translateY(-2px);
+        }
+         .product-details-container .section {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+         .product-details-container .section h3 {
+            margin-bottom: 10px;
+        }
+        .add-to-cart-form {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+              margin-top: 20px;
+        }
+
+         .add-to-cart-form input {
+           width: 40px;
+           padding: 5px;
+           border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+        }
+         .add-to-cart-form button {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+             background-color: #1e3a5f;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+         .add-to-cart-form button:hover {
+            background-color: #DAA520;
+           box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+            transform: translateY(-2px);
+        }
+    </style>
+    <div class="product-details-container">
+        <h2>AcquaSpectra - Dettagli</h2>
+        <img src="{{ url_for('static', filename='Images/AcquaSpectra (1).jpg') }}" alt="AcquaSpectra Image">
+        <p><strong>Prezzo:</strong> €{{ product['price'] }}</p>
+
+        <div class="section">
+            <h3>Panoramica del Prodotto</h3>
+             <p>AcquaSpectra è la linea di punta per gli amanti delle attività acquatiche, progettata per offrire prestazioni superiori e un'esperienza indimenticabile in ogni immersione e snorkeling. La nostra attrezzatura è realizzata con materiali di altissima qualità, garantendo durata, comfort e sicurezza in ogni situazione.</p>
+        </div>
+           <div class="section">
+              <h3>Tecnologia e Design</h3>
+                <p>Il design innovativo di AcquaSpectra si concentra sull'ergonomia e sulla facilità d'uso, permettendo un'esperienza intuitiva e confortevole anche per i principianti. Le tecnologie avanzate che utilizziamo assicurano prestazioni ottimali, che tu sia in superficie con lo snorkeling o più in profondità con l'immersione.</p>
+            </div>
+
+             <div class="section">
+                 <h3>Materiali e Sostenibilità</h3>
+                <p>Siamo impegnati nella sostenibilità e nella conservazione del nostro ambiente marino. I nostri prodotti sono realizzati con materiali eco-compatibili, riducendo l'impatto ambientale delle nostre attività. AcquaSpectra è la scelta ideale per chi cerca attrezzatura di alta qualità e rispetto per l'ambiente.</p>
+              </div>
+         <form method="post" action="{{ url_for('add_to_cart', product_id=product['id']) }}" class="add-to-cart-form">
+                <input type="number" name="quantity" value="1" min="1">
+                <button type="submit">Aggiungi al carrello</button>
+         </form>
+           <a href="{{ url_for('catalog_page') }}">Torna al Catalogo</a>
+    </div>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block content %}
+    <style>
+        .contatti-container {
+            text-align: center;
+            padding: 20px;
+             background-color: rgba(255, 255, 255, 0.8);
+            color: #000;
+             border-radius: 10px;
+             max-width: 90%;
+            margin: 20px auto;
+             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        .contatti-container h2 {
+            margin-bottom: 20px;
+        }
+         .contatti-container p {
+            margin-bottom: 10px;
+             font-size: 1.1em;
+              text-align: center;
+        }
+           .contatti-container ul {
+            list-style: none;
+             padding: 0;
+        }
+
+        .contatti-container ul li {
+            margin-bottom: 10px;
+        }
+         .contatti-container img {
+             max-width: 50%;
+             border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .contatti-container a {
+           color: #000;
+        }
+    </style>
+    <div class="contatti-container">
+        <h2>Contatti</h2>
+         <img src="{{ url_for('static', filename='Images/RottaNauticaLogo.png') }}" alt="Contatti">
+        <p>Hai bisogno di assistenza o hai delle domande?</p>
+         <p>Non esitare a contattarci! Siamo qui per aiutarti.</p>
+        <p>Puoi trovarci ai seguenti contatti:</p>
+        <ul>
+            <li><strong>Email:</strong> <a href="mailto:info@rottanautica.com">info@rottanautica.com</a></li>
+            <li><strong>Telefono:</strong> +39 081-456-7890</li>
+            <li><strong>Indirizzo:</strong> Via Nazionale 34, Napoli</li>
+        </ul>
+    </div>
+{% endblock %}
