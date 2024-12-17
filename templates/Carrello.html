@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% block content %}
+    <style>
+    .cart-container {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #000;
+             border-radius: 10px;
+             margin: 20px auto;
+              max-width: 90%;
+              box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .cart-container h2 {
+           margin-bottom: 20px;
+        }
+
+    .cart-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+         }
+
+        .cart-table th, .cart-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        .cart-table th {
+          background-color: #f2f2f2;
+        }
+
+        .cart-table img {
+            max-width: 50px;
+           border-radius: 5px;
+        }
+
+        .cart-table form {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+         .cart-table form button {
+           padding: 6px 12px;
+            border: none;
+            border-radius: 5px;
+             background-color: #1e3a5f;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+        }
+         .cart-table form button:hover {
+            background-color: #DAA520;
+           box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .cart-table input {
+         width: 40px;
+           padding: 5px;
+           border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+        }
+    </style>
+    <div class="cart-container">
+        <h2>Carrello</h2>
+         {% if cart_items %}
+        <table class="cart-table">
+            <thead>
+                <tr>
+                    <th>Prodotto</th>
+                    <th>Nome</th>
+                    <th>Prezzo</th>
+                    <th>Quantità</th>
+                    <th>Totale</th>
+                    <th>Azioni</th>
+                 </tr>
+            </thead>
+            <tbody>
+                {% for item in cart_items %}
+                   <tr>
+                       <td><img src="{{ url_for('static', filename='Images/' + item['image_filename']) }}" alt="{{ item['name'] }}"></td>
+                       <td>{{ item['name'] }}</td>
+                       <td>€{{ item['price'] }}</td>
+                       <td>
+                       <form method="post" action="{{ url_for('update_cart_quantity', cart_item_id=item['cart_item_id']) }}">
+                       <input type="number" name="quantity" value="{{ item['quantity'] }}" min="1">
+                       <button type="submit">Aggiorna</button>
+                       </form>
+                       </td>
+                        <td>€{{ item['price'] * item['quantity'] }}</td>
+                       <td>
+                        <form method="post" action="{{ url_for('remove_from_cart', cart_item_id=item['cart_item_id']) }}">
+                               <button type="submit">Rimuovi</button>
+                        </form>
+                        </td>
+                   </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+         {% else %}
+          <p>Il tuo carrello è vuoto.</p>
+        {% endif %}
+    </div>
+{% endblock %}
